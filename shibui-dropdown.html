@@ -3,10 +3,26 @@
 <link rel="import" href="../iron-flex-layout/iron-flex-layout.html">
 
 <!--
-`shibui-dropdown`
+`shibui-dropdown` is a simple and modern dropdown inspired by the dropdown on [Heroku](https://heroku.com).
 
+Example:
 
-@demo demo/index.html
+    <shibui-dropdown>
+      <a>Account Settings</a>
+      <a>Notifications</a>
+      <a>Sign out</a>
+    </shibui-dropdown>
+
+### Styling
+
+The following custom properties and mixins are also available for styling:
+
+Custom property | Description | Default
+----------------|-------------|----------
+`--shibui-dropdown-color` | A property that controls the color of the dropdown items | `black`
+`--shibui-dropdown-content` | A mixin that is applied to the dropdown | `{}`
+
+@demo demo/shibui-dropdown.html
 -->
 
 <dom-module id="shibui-dropdown">
@@ -74,6 +90,9 @@
       is: 'shibui-dropdown',
 
       properties: {
+        /**
+         * Determines whether the dropdown is opened or closed
+         */
         opened: {
           type: Boolean,
           value: false,
@@ -82,6 +101,9 @@
           observer: '_openedChanged'
         },
 
+        /**
+         * Whether to align the dropdown to the 'right' or 'left' of its relative parent
+         */
         alignment: {
           type: String,
           value: 'right',
@@ -96,11 +118,7 @@
       },
 
       detached: function() {
-        document.body.removeEventListener('click', this.close);
-      },
-
-      get contentNodes() {
-        return Polymer.dom(this).getDistributedNodes();
+        document.removeEventListener('click', this.close);
       },
 
       /**
@@ -127,10 +145,10 @@
       _openedChanged: function(opened) {
         if (opened) {
           Polymer.RenderStatus.afterNextRender(this, function() {
-            document.body.addEventListener('click', this.close);
+            document.addEventListener('click', this.close);
           });
         } else {
-          document.body.removeEventListener('click', this.close);
+          document.removeEventListener('click', this.close);
         }
       }
     });

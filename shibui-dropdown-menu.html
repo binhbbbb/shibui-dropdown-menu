@@ -5,10 +5,18 @@
 <link rel="import" href="shibui-dropdown.html">
 
 <!--
-`shibui-dropdown-menu`
+`shibui-dropdown-menu` is a simple and modern dropdown menu inspired by the dropdown on [Heroku](https://heroku.com).
 
+Example:
 
-@demo demo/index.html
+    <shibui-dropdown-menu>
+      <button slot="trigger">Trigger</button>
+      <a>Account Settings</a>
+      <a>Notifications</a>
+      <a>Sign out</a>
+    </shibui-dropdown-menu>
+
+@demo demo/shibui-dropdown-menu.html
 -->
 
 <dom-module id="shibui-dropdown-menu">
@@ -34,6 +42,9 @@
       is: 'shibui-dropdown-menu',
 
       properties: {
+        /**
+         * Determines whether the dropdown is opened or closed
+         */
         opened: {
           type: Boolean,
           value: false,
