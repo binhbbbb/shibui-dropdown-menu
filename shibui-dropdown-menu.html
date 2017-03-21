@@ -26,6 +26,10 @@ Example:
         display: inline-block;
         position: relative;
       }
+
+      .trigger ::slotted(*) {
+        cursor: pointer;
+      }
     </style>
     <div class="trigger">
       <slot id="trigger" name="trigger"></slot>
