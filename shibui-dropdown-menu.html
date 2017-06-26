@@ -66,13 +66,17 @@ Example:
         }
       },
 
+      created: function () {
+        Polymer.Gestures.add(document.documentElement, 'tap', null);
+      },
+
       attached: function() {
         this._toggle = this._toggle.bind(this);
-        this._triggerElement.addEventListener('click', this._toggle);
+        this._triggerElement.addEventListener('tap', this._toggle);
       },
 
       detached: function() {
-        this._triggerElement.removeEventListener('click', this._toggle);
+        this._triggerElement.removeEventListener('tap', this._toggle);
       },
 
       /**
