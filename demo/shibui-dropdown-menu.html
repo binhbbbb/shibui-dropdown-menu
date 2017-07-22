@@ -5,27 +5,28 @@
     <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
 
     <title>shibui-dropdown-menu demo</title>
-
-    <script src="../../webcomponentsjs/webcomponents-lite.js"></script>
+    <script src="../../webcomponentsjs/webcomponents-loader.js"></script>
 
     <link rel="import" href="../../iron-demo-helpers/demo-pages-shared-styles.html">
     <link rel="import" href="../../iron-demo-helpers/demo-snippet.html">
     <link rel="import" href="../../iron-image/iron-image.html">
     <link rel="import" href="../shibui-dropdown-menu.html">
 
-    <style is="custom-style" include="demo-pages-shared-styles">
-      body {
-        display: block;
-        font-family: sans-serif;
-      }
+    <custom-style>
+      <style is="custom-style" include="demo-pages-shared-styles">
+        body {
+          display: block;
+          font-family: sans-serif;
+        }
 
-      shibui-dropdown-menu {
-        --shibui-dropdown-color: #79589F;
-        --shibui-dropdown-content: {
-          width: 200px;
-        };
-      }
-    </style>
+        shibui-dropdown-menu {
+          --shibui-dropdown-color: #79589F;
+          --shibui-dropdown-content: {
+            width: 200px;
+          };
+        }
+      </style>
+    </custom-style>
   </head>
   <body>
     <div class="vertical-section-container centered">
@@ -45,28 +46,30 @@
       <h3>Basic shibui-dropdown-menu demo</h3>
       <demo-snippet>
         <template>
-          <style is="custom-style">
-            .primary {
-              padding: 20px;
+          <custom-style>
+            <style is="custom-style" include="demo-pages-shared-styles">
+              .primary {
+                padding: 20px;
 
-              @apply --layout-vertical;
-              @apply --layout-center-center;
-            }
+                @apply --layout-vertical;
+                @apply --layout-center-center;
+              }
 
-            .primary > * {
-              padding: 3px;
-            }
+              .primary > * {
+                padding: 3px;
+              }
 
-            .avatar {
-              width: 50px;
-              height: 50px;
-            }
+              .avatar {
+                width: 50px;
+                height: 50px;
+              }
 
-            .email {
-              font-size: 13px;
-              color: #96A3B6;
-            }
-          </style>
+              .email {
+                font-size: 13px;
+                color: #96A3B6;
+              }
+            </style>
+          </custom-style>
           <shibui-dropdown-menu>
             <button slot="trigger">Trigger</button>
             <a class="primary">
