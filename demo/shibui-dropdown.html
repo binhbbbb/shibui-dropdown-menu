@@ -6,11 +6,12 @@
 
     <title>shibui-dropdown demo</title>
 
-    <script src="../../webcomponentsjs/webcomponents-loader.js"></script>
+    <script src="../../webcomponentsjs/webcomponents-lite.js"></script>
+
+    <link rel="import" href="../shibui-dropdown.html">
 
     <link rel="import" href="../../iron-demo-helpers/demo-pages-shared-styles.html">
     <link rel="import" href="../../iron-demo-helpers/demo-snippet.html">
-    <link rel="import" href="../shibui-dropdown.html">
 
     <custom-style>
       <style is="custom-style" include="demo-pages-shared-styles">
@@ -33,7 +34,7 @@
       <!-- TODO: https://github.com/PolymerElements/iron-demo-helpers/issues/54 -->
       <demo-snippet>
         <dom-bind>
-          <template>
+          <template is="dom-bind">
             <input type="checkbox" checked="{{opened::change}}">
             <shibui-dropdown opened="{{opened}}">
               <a>Account Settings</a>
