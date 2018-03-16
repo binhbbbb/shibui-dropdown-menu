@@ -112,10 +112,6 @@ Custom property | Description | Default
         }
       },
 
-      created: function () {
-        Polymer.Gestures.add(document.documentElement, 'tap', null);
-      },
-
       attached: function() {
         this.toggle = this.toggle.bind(this);
         this.open = this.open.bind(this);
@@ -123,7 +119,7 @@ Custom property | Description | Default
       },
 
       detached: function() {
-        document.removeEventListener('tap', this.close);
+        document.removeEventListener('click', this.close);
       },
 
       /**
@@ -150,10 +146,10 @@ Custom property | Description | Default
       _openedChanged: function(opened) {
         if (opened) {
           Polymer.RenderStatus.afterNextRender(this, function() {
-            document.addEventListener('tap', this.close);
+            document.addEventListener('click', this.close);
           });
         } else {
-          document.removeEventListener('tap', this.close);
+          document.removeEventListener('click', this.close);
         }
       }
     });
